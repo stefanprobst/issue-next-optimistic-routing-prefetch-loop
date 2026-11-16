@@ -48,6 +48,9 @@ Optimistic routing does handle a prediction that turns out wrong, by marking the
 `fetchAndWritePerSegmentPrefetchResponse` passes no prediction to the write ("root-anchored, so there's no prediction
 to diverge from"), so a wrong prediction for a per-segment prefetch is never detected.
 
+[#97128](https://github.com/vercel/next.js/pull/97128) fixed other optimistic routing bugs that led to repeated
+prefetches; this case still loops on canary.
+
 Open questions:
 
 - Why the route learned from `/x` is used for prediction, but the same route learned from `/de` is not: from `/de`,
